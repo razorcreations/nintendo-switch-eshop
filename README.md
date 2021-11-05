@@ -34,7 +34,7 @@ const { getGamesAmerica, getGamesEurope, getGamesJapan, getQueriedGamesAmerica }
 
 **For calling functions with the correct parameters and syntax please refer to the documentation linked below**
 
-Copyright © `2019` `favna` & `lmmfranco`
+Copyright © `2021` `favna` & `lmmfranco`
 
 ## Documentation
 
