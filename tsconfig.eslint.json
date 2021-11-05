@@ -6,7 +6,7 @@
   },
   "include": [
     "src",
-    "__tests__",
+    "tests",
     "jest.config.ts",
     "documentation/src",
     "documentation/docusaurus.config.js",

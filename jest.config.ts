@@ -6,11 +6,11 @@ export default async (): Promise<Config.InitialOptions> => ({
   preset: 'ts-jest',
   testEnvironment: 'node',
   testRunner: 'jest-circus/runner',
-  testMatch: ['<rootDir>/__tests__/*.test.{js,ts}'],
-  setupFilesAfterEnv: ['<rootDir>/__tests__/jest.setup.ts'],
+  testMatch: ['<rootDir>/tests/*.test.{js,ts}'],
+  setupFilesAfterEnv: ['<rootDir>/tests/jest.setup.ts'],
   globals: {
     'ts-jest': {
-      tsconfig: '<rootDir>/__tests__/tsconfig.json'
+      tsconfig: '<rootDir>/tests/tsconfig.json'
     }
   }
 });
