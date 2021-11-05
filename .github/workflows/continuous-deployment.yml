@@ -38,6 +38,6 @@ jobs:
           GITHUB_ACTOR: Jeroen Claassens
           GITHUB_EMAIL: support@favware.tech
         run: |
-          git config user.name "${GITHUB_ACTOR}"
-          git config user.email "${GITHUB_EMAIL}"
+          git config --global user.name "${GITHUB_ACTOR}"
+          git config --global user.email "${GITHUB_EMAIL}"
           yarn deploy
