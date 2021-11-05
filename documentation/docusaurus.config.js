@@ -72,7 +72,7 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/favna/nintendo-switch-eshop/edit/master/',
+          editUrl: 'https://github.com/favna/nintendo-switch-eshop/edit/main/',
           remarkPlugins: [[require('@docusaurus/remark-plugin-npm2yarn'), { sync: true }]],
           showLastUpdateAuthor: true,
           showLastUpdateTime: true

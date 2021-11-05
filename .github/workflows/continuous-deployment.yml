@@ -3,7 +3,7 @@ name: Continuous Deployment
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   Docgen:
@@ -27,7 +27,7 @@ jobs:
         if: ${{ !steps.cache-restore.outputs.cache-hit }}
         run: yarn --immutable
       - name: Publish Documentation
-        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         working-directory: documentation
         env:
           GIT_USER: favna

@@ -6,7 +6,7 @@
 
 **A Node.JS lib written to extract Nintendo Switch's eShop game and pricing information**
 
-[![GitHub](https://img.shields.io/github/license/favna/nintendo-switch-eshop?logo=github&style=flat-square)](https://github.com/favna/nintendo-switch-eshop/blob/master/LICENSE)
+[![GitHub](https://img.shields.io/github/license/favna/nintendo-switch-eshop?logo=github&style=flat-square)](https://github.com/favna/nintendo-switch-eshop/blob/main/LICENSE)
 [![npm](https://img.shields.io/npm/v/nintendo-switch-eshop?color=crimson&logo=npm&style=flat-square)](https://www.npmjs.com/package/nintendo-switch-eshop)
 [![npm](https://img.shields.io/npm/dw/nintendo-switch-eshop?color=crimson&logo=npm&style=flat-square)](https://www.npmjs.com/package/nintendo-switch-eshop)
 [![npm](https://img.shields.io/npm/dt/nintendo-switch-eshop?color=crimson&logo=npm&style=flat-square)](https://www.npmjs.com/package/nintendo-switch-eshop)
