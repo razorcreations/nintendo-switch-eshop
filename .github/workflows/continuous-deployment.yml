@@ -26,15 +26,12 @@ jobs:
       - name: Install Dependencies if Cache Miss
         if: ${{ !steps.cache-restore.outputs.cache-hit }}
         run: yarn --immutable
-      - uses: webfactory/ssh-agent@v0.5.0
-        with:
-          ssh-private-key: ${{ secrets.GH_PAGES_DEPLOY }}
       - name: Publish Documentation
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         working-directory: documentation
         env:
-          USE_SSH: true
           GIT_USER: favna
+          GIT_PASS: ${{ secrets.PAGES_DEPLOY_TOKEN }}
           GITHUB_ACTOR: Jeroen Claassens
           GITHUB_EMAIL: support@favware.tech
         run: |
