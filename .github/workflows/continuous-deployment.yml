@@ -1,0 +1,43 @@
+name: Continuous Deployment
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  Docgen:
+    name: Docgen
+    runs-on: ubuntu-latest
+    if: "github.event_name == 'push'"
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97 # renovate: tag=v2
+      - name: Use Node.js v16
+        uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c # renovate: tag=v2
+        with:
+          node-version: 16
+      - name: Restore CI Cache
+        uses: actions/cache@c64c572235d810460d0d6876e9c705ad5002b353 # renovate: tag=v2.1.6
+        id: cache-restore
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-16-${{ hashFiles('**/yarn.lock') }}
+      - name: Install Dependencies if Cache Miss
+        if: ${{ !steps.cache-restore.outputs.cache-hit }}
+        run: yarn --immutable
+      - uses: webfactory/ssh-agent@v0.5.0
+        with:
+          ssh-private-key: ${{ secrets.GH_PAGES_DEPLOY }}
+      - name: Publish Documentation
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        working-directory: documentation
+        env:
+          USE_SSH: true
+          GIT_USER: favna
+          GITHUB_ACTOR: lmmfranco
+          GITHUB_EMAIL: lmmfranco@gmail.co
+        run: |
+          git config user.name "${GITHUB_ACTOR}"
+          git config user.email "${GITHUB_EMAIL}"
+          yarn deploy
