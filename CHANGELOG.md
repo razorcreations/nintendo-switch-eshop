@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.0.0](https://github.com/favna/nintendo-switch-eshop/compare/v6.0.2...v7.0.0) (2021-11-05)
+
+### ⚠ BREAKING CHANGES
+
+- The ownership of this package has officially been transferred to https://github.com/favna.
+  While Favna has been maintaining this package for a few years already and this won't affect you in any major ways,
+  package ownership transfers have often been an icky topic in the NPM ecosystem. For this reason the choice was made
+  to make this a new major versions so a change of ownership would not land in your caret scoped dependencies.
+
+### Bug Fixes
+
+- update all the URLs ahead of full transfer ([5231eaf](https://github.com/favna/nintendo-switch-eshop/commit/5231eaf9ced61c7d710bba9a6c31c5deb1909904))
+
 ### [6.0.2](https://github.com/favna/nintendo-switch-eshop/compare/v6.0.1...v6.0.2) (2021-10-25)
 
 ### Bug Fixes
