@@ -35,8 +35,8 @@ jobs:
         env:
           USE_SSH: true
           GIT_USER: favna
-          GITHUB_ACTOR: lmmfranco
-          GITHUB_EMAIL: lmmfranco@gmail.co
+          GITHUB_ACTOR: Jeroen Claassens
+          GITHUB_EMAIL: support@favware.tech
         run: |
           git config user.name "${GITHUB_ACTOR}"
           git config user.email "${GITHUB_EMAIL}"
