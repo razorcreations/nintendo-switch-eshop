@@ -3,14 +3,13 @@ name: API Issue
 about: Report issues due to the Nintendo API changing here
 title: '[API] '
 labels: 'Type: API Issue'
-assignees: 'Favna, Immfranco'
-
+assignees: 'favna'
 ---
 
 **Please describe the problem you are having in as much detail as possible:**
 
-
 **Further details:**
+
 - version:
 - Node.js version:
 - Operating system:

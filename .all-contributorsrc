@@ -1,6 +1,6 @@
 {
   "projectName": "nintendo-switch-eshop",
-  "projectOwner": "Favna",
+  "projectOwner": "favna",
   "repoType": "github",
   "repoHost": "https://github.com",
   "files": ["README.md"],
@@ -16,7 +16,7 @@
       "contributions": ["code", "ideas", "projectManagement", "question", "review", "doc"]
     },
     {
-      "login": "Favna",
+      "login": "favna",
       "name": "Jeroen Claassens",
       "avatar_url": "https://avatars3.githubusercontent.com/u/4019718?v=4",
       "profile": "https://favware.tech/",

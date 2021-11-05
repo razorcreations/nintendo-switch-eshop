@@ -72,7 +72,7 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/Favna/nintendo-switch-eshop/edit/master/',
+          editUrl: 'https://github.com/favna/nintendo-switch-eshop/edit/master/',
           remarkPlugins: [[require('@docusaurus/remark-plugin-npm2yarn'), { sync: true }]],
           showLastUpdateAuthor: true,
           showLastUpdateTime: true
@@ -99,10 +99,10 @@ const config = {
         { name: 'apple-mobile-web-app-title', content: Title },
         { name: 'application-name', content: Title },
         { name: 'audience', content: 'all' },
-        { name: 'author', content: `Favna, ${Email}` },
+        { name: 'author', content: `favna, ${Email}` },
         { name: 'coverage', content: 'Worldwide' },
         { name: 'description', content: Description },
-        { name: 'designer', content: `Favna, ${Email}` },
+        { name: 'designer', content: `favna, ${Email}` },
         { name: 'distribution', content: 'Global' },
         { name: 'googlebot', content: 'index,follow' },
         { name: 'HandheldFriendly', content: 'True' },
@@ -111,7 +111,7 @@ const config = {
         { name: 'msapplication-config', content: '/browserconfig.xml' },
         { name: 'msapplication-TileColor', content: '#F89034' },
         { name: 'msapplication-TileImage', content: '/img/favicons/mstile-144x144.png' },
-        { name: 'owner', content: `Favna, ${Email}` },
+        { name: 'owner', content: `favna, ${Email}` },
         { name: 'rating', content: 'safe for kids' },
         { name: 'reply-to', content: Email },
         { name: 'revisit-after', content: '7 days' },
@@ -161,7 +161,7 @@ const config = {
             position: 'right'
           },
           {
-            href: 'https://github.com/Favna/nintendo-switch-eshop',
+            href: 'https://github.com/favna/nintendo-switch-eshop',
             label: 'GitHub',
             position: 'right'
           }
