@@ -36,7 +36,9 @@ const { getGamesAmerica, getGamesEurope, getGamesJapan, getQueriedGamesAmerica }
 
 Copyright © `2019` `favna` & `lmmfranco`
 
-## [API Documentation](https://favna.github.io/nintendo-switch-eshop)
+## Documentation
+
+For the documentation go to https://favna.github.io/nintendo-switch-eshop
 
 ## Contributors ✨
 
