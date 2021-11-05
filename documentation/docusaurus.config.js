@@ -2,21 +2,21 @@ const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/vsDark');
 
 const Description = 'Unofficial API lib for Nintendo Switch eShop game listing and pricing information.';
-const BaseUrl = 'https://lmmfranco.github.io/nintendo-switch-eshop';
+const BaseUrl = 'https://favna.github.io/nintendo-switch-eshop';
 const Email = 'support@favware.tech';
 const Title = 'Nintendo Switch Eshop API';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: Title,
-  url: 'https://lmmfranco.github.io',
+  url: 'https://favna.github.io',
   baseUrl: '/nintendo-switch-eshop/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   onDuplicateRoutes: 'throw',
   favicon: 'img/favicon.ico',
   tagline: Description,
-  organizationName: 'lmmfranco',
+  organizationName: 'favna',
   deploymentBranch: 'gh-pages',
   projectName: 'nintendo-switch-eshop',
   trailingSlash: false,
@@ -72,7 +72,7 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/lmmfranco/nintendo-switch-eshop/edit/master/',
+          editUrl: 'https://github.com/Favna/nintendo-switch-eshop/edit/master/',
           remarkPlugins: [[require('@docusaurus/remark-plugin-npm2yarn'), { sync: true }]],
           showLastUpdateAuthor: true,
           showLastUpdateTime: true
@@ -88,7 +88,7 @@ const config = {
   themeConfig:
     /** @type {Partial<import('@docusaurus/preset-classic').ThemeConfig>} */
     ({
-      image: 'https://lmmfranco.github.io/nintendo-switch-eshop/img/favicons/opengraph.png',
+      image: 'https://favna.github.io/nintendo-switch-eshop/img/favicons/opengraph.png',
       colorMode: {
         defaultMode: 'dark',
         respectPrefersColorScheme: true
@@ -161,7 +161,7 @@ const config = {
             position: 'right'
           },
           {
-            href: 'https://github.com/lmmfranco/nintendo-switch-eshop',
+            href: 'https://github.com/Favna/nintendo-switch-eshop',
             label: 'GitHub',
             position: 'right'
           }
@@ -170,7 +170,7 @@ const config = {
       footer: {
         style: 'dark',
         links: [],
-        copyright: `Copyright © ${new Date().getFullYear()} lmmfranco.`
+        copyright: `Copyright © ${new Date().getFullYear()} favna & lmmfranco.`
       },
       prism: {
         defaultLanguage: 'javascript',

@@ -5,7 +5,7 @@
     "documentation/"
   ],
   "description": "Unofficial API lib for Nintendo Switch eShop game listing and pricing information.",
-  "author": "lmmfranco",
+  "author": "Favna",
   "license": "Apache-2.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -76,10 +76,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lmmfranco/nintendo-switch-eshop.git"
+    "url": "git+https://github.com/Favna/nintendo-switch-eshop.git"
   },
   "bugs": {
-    "url": "https://github.com/lmmfranco/nintendo-switch-eshop/issues"
+    "url": "https://github.com/Favna/nintendo-switch-eshop/issues"
   },
   "lint-staged": {
     "*.{mjs,js,ts}": "eslint --fix --ext mjs,js,ts"
