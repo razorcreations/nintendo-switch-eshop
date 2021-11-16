@@ -2,24 +2,22 @@ const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/vsDark');
 
 const Description = 'Unofficial API lib for Nintendo Switch eShop game listing and pricing information.';
-const BaseUrl = 'https://favna.github.io/nintendo-switch-eshop';
 const Email = 'support@favware.tech';
 const Title = 'Nintendo Switch Eshop API';
+const BaseUrl = 'https://nintendo-switch-eshop-favna.vercel.app';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: Title,
-  url: 'https://favna.github.io',
-  baseUrl: '/nintendo-switch-eshop/',
-  onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
+  url: BaseUrl,
+  baseUrl: '/',
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'throw',
   onDuplicateRoutes: 'throw',
   favicon: 'img/favicon.ico',
   tagline: Description,
   organizationName: 'favna',
-  deploymentBranch: 'gh-pages',
   projectName: 'nintendo-switch-eshop',
-  trailingSlash: false,
 
   themes: [],
 
@@ -88,7 +86,7 @@ const config = {
   themeConfig:
     /** @type {Partial<import('@docusaurus/preset-classic').ThemeConfig>} */
     ({
-      image: 'https://favna.github.io/nintendo-switch-eshop/img/favicons/opengraph.png',
+      image: `${BaseUrl}/nintendo-switch-eshop/img/favicons/opengraph.png`,
       colorMode: {
         defaultMode: 'dark',
         respectPrefersColorScheme: true
