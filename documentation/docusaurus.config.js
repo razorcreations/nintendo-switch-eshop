@@ -146,12 +146,13 @@ const config = {
             to: '/',
             label: 'Home',
             position: 'left',
-            activeBaseRegex: '^\\/nintendo-switch-eshop\\/$'
+            activeBaseRegex: '^/$'
           },
           {
             type: 'doc',
             docId: 'Welcome',
-            label: 'Documentation'
+            label: 'Documentation',
+            activeBaseRegex: '^/docs/Documentation/.+$'
           },
           {
             href: 'https://join.favware.tech',
