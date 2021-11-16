@@ -86,7 +86,7 @@ const config = {
   themeConfig:
     /** @type {Partial<import('@docusaurus/preset-classic').ThemeConfig>} */
     ({
-      image: `${BaseUrl}/nintendo-switch-eshop/img/favicons/opengraph.png`,
+      image: `${BaseUrl}/img/favicons/opengraph.png`,
       colorMode: {
         defaultMode: 'dark',
         respectPrefersColorScheme: true
