@@ -4,7 +4,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/vsDark');
 const Description = 'Unofficial API lib for Nintendo Switch eShop game listing and pricing information.';
 const Email = 'support@favware.tech';
 const Title = 'Nintendo Switch Eshop API';
-const BaseUrl = 'https://nintendo-switch-eshop-favna.vercel.app';
+const BaseUrl = 'https://nintendo-switch-eshop.vercel.app';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {

@@ -14,7 +14,7 @@
     "require": "./dist/index.js"
   },
   "sideEffects": false,
-  "homepage": "https://nintendo-switch-eshop-favna.vercel.app",
+  "homepage": "https://nintendo-switch-eshop.vercel.app",
   "scripts": {
     "test": "jest",
     "lint": "eslint src tests documentation/src --ext mjs,js,ts,tsx --fix",
