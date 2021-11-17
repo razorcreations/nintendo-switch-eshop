@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.0.1](https://github.com/favna/nintendo-switch-eshop/compare/v7.0.0...v7.0.1) (2021-11-17)
+
+### Bug Fixes
+
+- fixed home page url and links to api docs ([b876ead](https://github.com/favna/nintendo-switch-eshop/commit/b876ead753a5ed08e56a90e80c1ae56325cb3fd8))
+
 ## [7.0.0](https://github.com/favna/nintendo-switch-eshop/compare/v6.0.2...v7.0.0) (2021-11-05)
 
 ### ⚠ BREAKING CHANGES
