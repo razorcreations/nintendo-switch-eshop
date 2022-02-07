@@ -2,55 +2,77 @@ import type { Country } from 'country-data';
 import type { Region } from './constants';
 
 export interface GameEU {
+  _version_: number;
+  add_on_content_b: boolean;
+  age_rating_sorting_i: number;
   age_rating_type: string;
   age_rating_value: string;
+  change_date: Date;
+  cloud_saves_b: boolean;
+  club_nintendo: boolean;
+  compatible_controller: string[];
   copyright_s: string;
+  date_from: Date;
+  dates_released_dts: Date[];
+  deprioritise_b: boolean;
+  digital_version_b: boolean;
   developer: string;
+  eshop_removed_b: boolean;
   excerpt: string;
   fs_id: string;
+  game_categories_txt: string[];
+  game_category: string[];
   game_series_t: string;
   gift_finder_carousel_image_url_s: string;
   gift_finder_description_s: string;
   gift_finder_detail_page_image_url_s: string;
   gift_finder_detail_page_store_link_s: string;
   gift_finder_wishlist_image_url_s: string;
+  hits_i: number;
   image_url: string;
   image_url_h2x1_s: string;
   image_url_sq_s: string;
   image_url_tm_s: string;
-  originally_for_t: string;
-  pretty_agerating_s: string;
-  pretty_date_s: string;
-  publisher: string;
-  sorting_title: string;
-  title: string;
-  type: string;
-  url: string;
-  add_on_content_b: boolean;
-  club_nintendo: boolean;
+  language_availability: string[];
   near_field_comm_b: boolean;
+  /** Array containing the 14-digit game unique identifier */
+  nsuid_txt: string[];
+  originally_for_t: string;
+  pg_s: string;
   physical_version_b: boolean;
   play_mode_handheld_mode_b: boolean;
   play_mode_tabletop_mode_b: boolean;
   play_mode_tv_mode_b: boolean;
-  change_date: Date;
-  date_from: Date;
-  priority: Date;
-  age_rating_sorting_i: number;
+  playable_on_txt: string[];
   players_from: number;
   players_to: number;
-  compatible_controller: string[];
-  game_categories_txt: string[];
-  game_category: string[];
-  language_availability: string[];
-  /** Array containing the 14-digit game unique identifier */
-  nsuid_txt: string[];
-  playable_on_txt: string[];
+  popularity: number;
+  pretty_agerating_s: string;
+  pretty_date_s: string;
+  pretty_game_categories_txt: string[];
+  price_discount_percentage_f: number;
+  price_has_discount_b: boolean;
+  price_lowest_f: number;
+  price_regular_f: number;
+  price_sorting_f: number;
+  priority: Date;
+  product_catalog_description_s: string;
+  product_code_ss: string[];
   /** Array containing the product code */
   product_code_txt: string[];
+  publisher: string;
+  sorting_title: string;
+  switch_game_voucher_b: boolean;
   system_names_txt: string[];
   system_type: string[];
+  title: string;
   title_extras_txt: string[];
+  type: string;
+  /** the url path of the game on the eShop website - does not include domain **/
+  url: string;
+  wishlist_email_banner460w_image_url_s: string;
+  wishlist_email_banner640w_image_url_s: string;
+  wishlist_email_square_image_url_s: string;
 }
 
 /** Additional options for the [[getQueriedGamesAmerica]] method  */
