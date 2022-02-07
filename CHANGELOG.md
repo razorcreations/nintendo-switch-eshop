@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.0.2](https://github.com/favna/nintendo-switch-eshop/compare/v7.0.1...v7.0.2) (2022-02-07)
+
+### Bug Fixes
+
+- bump dependencies (`@sapphire/fetch` and `fast-xml-parser`) ([10256fe](https://github.com/favna/nintendo-switch-eshop/commit/10256fe95e27f5f5ade4eed888c2faf03ab446e8))
+- update `GameEU` interface ([65931cb](https://github.com/favna/nintendo-switch-eshop/commit/65931cb59e05a30759ac48e975866f5193507dc7)), closes [#2](https://github.com/favna/nintendo-switch-eshop/issues/2)
+
 ### [7.0.1](https://github.com/favna/nintendo-switch-eshop/compare/v7.0.0...v7.0.1) (2021-11-17)
 
 ### Bug Fixes
