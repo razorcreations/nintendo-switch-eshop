@@ -1,5 +1,5 @@
 import { fetch, FetchResultTypes } from '@sapphire/fetch';
-import { parse as xml2json } from 'fast-xml-parser';
+import { XMLParser } from 'fast-xml-parser';
 import { JP_GET_GAMES_URL } from '../utils/constants';
 import type { GameJP } from '../utils/interfaces';
 import { EshopError } from '../utils/utils';
@@ -11,7 +11,9 @@ import { EshopError } from '../utils/utils';
  */
 export const getGamesJapan = async (): Promise<GameJP[]> => {
   try {
-    const gamesJP = xml2json(await fetch(JP_GET_GAMES_URL, FetchResultTypes.Text));
+    const parser = new XMLParser();
+
+    const gamesJP = parser.parse(await fetch(JP_GET_GAMES_URL, FetchResultTypes.Text));
 
     const allGamesJP: GameJP[] = gamesJP.TitleInfoList.TitleInfo;
 
