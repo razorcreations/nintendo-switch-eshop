@@ -2,16 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
-# [3.0.1](https://github.com/favna/nintendo-switch-eshop/compare/v3.0.0...v3.0.1) - (2020-02-04)
+# [7.1.0](https://github.com/favna/nintendo-switch-eshop/compare/v7.0.2...v7.1.0) - (2022-04-16)
+
+## Bug Fixes
+
+- Fixed package config for yarn npm publish ([c816444](https://github.com/favna/nintendo-switch-eshop/commit/c816444f32c82ad209c51469244a8273103fbd59))
+- Add `module` to package.json and add `types` to export maps for `NodeNext` support ([68021b2](https://github.com/favna/nintendo-switch-eshop/commit/68021b2756877561ee26dd4efcb1a66bdd52a172))
 
 ## Documentation
 
-- Bump license year ([2812cc4](https://github.com/favna/nintendo-switch-eshop/commit/2812cc447f16d5c1f5ca3871b73b161dd9f88edf))
-- **api-docs:** Update api docs ([f10da7a](https://github.com/favna/nintendo-switch-eshop/commit/f10da7a3bbcad134ddd4b5c65d61ca450c12cc70))
+- Fix docusaurus config ([893de09](https://github.com/favna/nintendo-switch-eshop/commit/893de098a2053f8786fe897221c719e67633c305))
 
-## Testing
+## Features
 
-- Remove shop property from JS based test ([96d9ace](https://github.com/favna/nintendo-switch-eshop/commit/96d9ace13ae2f54fc121e7335ca16e9564001e33))
+- Add `getQueriedGamesBrazil` and `getGamesBrazil` (#4) ([dcf9d50](https://github.com/favna/nintendo-switch-eshop/commit/dcf9d50b3a2e81f842ebb84a21a027776917ddc0))
 
 ### [7.0.2](https://github.com/favna/nintendo-switch-eshop/compare/v7.0.1...v7.0.2) (2022-02-07)
 
