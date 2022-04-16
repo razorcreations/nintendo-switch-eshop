@@ -1,6 +1,6 @@
 {
   "name": "nintendo-switch-eshop",
-  "version": "7.0.2",
+  "version": "7.1.0",
   "workspaces": [
     "documentation/"
   ],

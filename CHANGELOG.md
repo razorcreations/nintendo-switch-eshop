@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+# [3.0.1](https://github.com/favna/nintendo-switch-eshop/compare/v3.0.0...v3.0.1) - (2020-02-04)
+
+## Documentation
+
+- Bump license year ([2812cc4](https://github.com/favna/nintendo-switch-eshop/commit/2812cc447f16d5c1f5ca3871b73b161dd9f88edf))
+- **api-docs:** Update api docs ([f10da7a](https://github.com/favna/nintendo-switch-eshop/commit/f10da7a3bbcad134ddd4b5c65d61ca450c12cc70))
+
+## Testing
+
+- Remove shop property from JS based test ([96d9ace](https://github.com/favna/nintendo-switch-eshop/commit/96d9ace13ae2f54fc121e7335ca16e9564001e33))
+
 ### [7.0.2](https://github.com/favna/nintendo-switch-eshop/compare/v7.0.1...v7.0.2) (2022-02-07)
 
 ### Bug Fixes
