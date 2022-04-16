@@ -25,7 +25,7 @@
     "clean": "tsc -b src --clean",
     "sversion": "standard-version",
     "update": "yarn upgrade-interactive",
-    "prepublishOnly": "yarn build",
+    "prepublish": "yarn build",
     "prepare": "husky install .github/husky"
   },
   "dependencies": {
@@ -67,8 +67,9 @@
     "minimist": "^1.2.6"
   },
   "files": [
-    "dist/",
-    "!dist/*.tsbuildinfo"
+    "dist/**/*.js*",
+    "dist/**/*.mjs*",
+    "dist/**/*.d*"
   ],
   "engines": {
     "node": ">=10",
