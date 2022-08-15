@@ -9,7 +9,7 @@ import { EshopError } from '../utils/utils';
  * @param query The query to search for
  * @param __namedParameters Additional options for the [[getQueriedGamesBrazil]] call. Defaults to `{ hitsPerPage: 200, page: 0 }`
  * @returns Promise containing the first `hitsPerPage` games that match your query
- * @license Apache-2.0 favna & Antonio Román
+ * @license Apache-2.0 Jeroen Claassens & Aura Román
  * @copyright 2021
  */
 export const getQueriedGamesBrazil = async (
