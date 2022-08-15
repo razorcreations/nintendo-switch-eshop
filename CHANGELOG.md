@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+# [7.1.1](https://github.com/favna/nintendo-switch-eshop/compare/v7.1.0...v7.1.1) - (2022-08-15)
+
+## 🐛 Bug Fixes
+
+- **getQueriesGamesAmerica:** Fetch both the old and new Algolia indices and merge data to ensure all available data is returned ([df1a806](https://github.com/favna/nintendo-switch-eshop/commit/df1a8069db4c3144dc0d9e1b9af85dd9b0629e3b))
+
+## 📝 Documentation
+
+- Update docusaurus setup ([ef3d13a](https://github.com/favna/nintendo-switch-eshop/commit/ef3d13ab4f52c559f5d3ccd56b7e70ccc32fa527))
+- Fix welcome install command ([22ff98d](https://github.com/favna/nintendo-switch-eshop/commit/22ff98d669735d689278bb2fa78c0226a413a988))
+- Update license header for `getQueriedGamesBrazil` and `getQueriedGamesAmerica` ([0746f6d](https://github.com/favna/nintendo-switch-eshop/commit/0746f6d0976a54835171980e26f3d1e055aac555))
+
+## 🧪 Testing
+
+- Migrate to vitest ([4ceb03a](https://github.com/favna/nintendo-switch-eshop/commit/4ceb03a8dcad2927cec01ec38eaa697fd87e5b6e))
+
 # [7.1.0](https://github.com/favna/nintendo-switch-eshop/compare/v7.0.2...v7.1.0) - (2022-04-16)
 
 ## Bug Fixes
