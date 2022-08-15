@@ -5,13 +5,19 @@ export const US_ALGOLIA_ID = 'U3B6GR4UA3';
 export const US_ALGOLIA_KEY = 'c4da8be7fd29f0f5bfa42920b0a99dc7';
 
 /** Algolia key for getting US games with a query */
-export const QUERIED_US_ALGOLIA_KEY = '6efbfb0f8f80defc44895018caf77504';
+export const QUERIED_US_ALGOLIA_KEY_NEW = 'a29c6927638bfd8cee23993e51e721c9';
+
+/** Algolia key for getting US games with a query */
+export const QUERIED_US_ALGOLIA_KEY_OLD = '6efbfb0f8f80defc44895018caf77504';
 
 /** URL for getting US Games */
 export const US_GET_GAMES_URL = `https://${US_ALGOLIA_ID}-dsn.algolia.net/1/indexes/*/queries`;
 
-/** URL for getting Queried US Games */
-export const QUERIED_US_GET_GAMES_URL = `https://${US_ALGOLIA_ID}-dsn.algolia.net/1/indexes/ncom_game_en_us/query`;
+/** New URL for getting Queried US Games */
+export const QUERIED_US_GET_GAMES_URL_NEW = `https://${US_ALGOLIA_ID}-dsn.algolia.net/1/indexes/store_all_products_en_us/query`;
+
+/** Old URL for getting Queried US games, this still exists and has additional properties which get merged with those from the new URL */
+export const QUERIED_US_GET_GAMES_URL_OLD = `https://${US_ALGOLIA_ID}-dsn.algolia.net/1/indexes/ncom_game_en_us/query`;
 
 /**
  * Sample game code for US store

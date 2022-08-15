@@ -1,6 +1,11 @@
 import { fetch, FetchResultTypes } from '@sapphire/fetch';
-import { stringify } from 'querystring';
-import { QUERIED_US_ALGOLIA_KEY, QUERIED_US_GET_GAMES_URL, US_ALGOLIA_HEADERS } from '../utils/constants';
+import {
+  QUERIED_US_ALGOLIA_KEY_NEW,
+  QUERIED_US_ALGOLIA_KEY_OLD,
+  QUERIED_US_GET_GAMES_URL_NEW,
+  QUERIED_US_GET_GAMES_URL_OLD,
+  US_ALGOLIA_HEADERS
+} from '../utils/constants';
 import type { QueriedGameResult, QueriedGamesAmericaOptions, QueriedGameUS } from '../utils/interfaces';
 import { EshopError } from '../utils/utils';
 
@@ -16,26 +21,66 @@ export const getQueriedGamesAmerica = async (
   query: string,
   { hitsPerPage = 200, page = 0 }: QueriedGamesAmericaOptions = { hitsPerPage: 200, page: 0 }
 ): Promise<QueriedGameUS[]> => {
-  const { hits } = await fetch<QueriedGameResult>(
-    QUERIED_US_GET_GAMES_URL,
+  const { hits: newHits } = await fetch<QueriedGameResult>(
+    QUERIED_US_GET_GAMES_URL_NEW,
     {
       method: 'POST',
       headers: {
         ...US_ALGOLIA_HEADERS,
-        'X-Algolia-API-Key': QUERIED_US_ALGOLIA_KEY
+        'X-Algolia-API-Key': QUERIED_US_ALGOLIA_KEY_NEW
       },
       body: JSON.stringify({
-        params: stringify({
-          hitsPerPage,
-          page,
-          query
-        })
+        hitsPerPage,
+        page,
+        query
       })
     },
     FetchResultTypes.JSON
   );
 
-  if (!hits.length) throw new EshopError(`No game results for the query "${query}"`);
+  if (!newHits.length) throw new EshopError(`No game results for the query "${query}"`);
 
-  return hits;
+  const { hits: oldHits } = await fetch<QueriedGameResult>(
+    QUERIED_US_GET_GAMES_URL_OLD,
+    {
+      method: 'POST',
+      headers: {
+        ...US_ALGOLIA_HEADERS,
+        'X-Algolia-API-Key': QUERIED_US_ALGOLIA_KEY_OLD
+      },
+      body: JSON.stringify({
+        hitsPerPage,
+        page,
+        query
+      })
+    },
+    FetchResultTypes.JSON
+  );
+
+  return enrichNewHitsWithOldHitData(newHits, oldHits);
 };
+
+function enrichNewHitsWithOldHitData(oldHits: QueriedGameUS[], newHits: QueriedGameUS[]) {
+  for (const newHit of newHits) {
+    const oldHitWithSameNsuid = oldHits.find((oldHit) => oldHit.nsuid === newHit.nsuid);
+
+    if (!oldHitWithSameNsuid) continue;
+
+    newHit.boxart = oldHitWithSameNsuid.boxart;
+    newHit.developers = oldHitWithSameNsuid.developers;
+    newHit.freeToStart = oldHitWithSameNsuid.freeToStart;
+    newHit.generalFilters = oldHitWithSameNsuid.generalFilters;
+    newHit.horizontalHeaderImage = oldHitWithSameNsuid.horizontalHeaderImage;
+    newHit.howToShop = oldHitWithSameNsuid.howToShop;
+    newHit.lowestPrice = oldHitWithSameNsuid.lowestPrice;
+    newHit.msrp = oldHitWithSameNsuid.msrp ?? newHit.price.regPrice;
+    newHit.salePrice = oldHitWithSameNsuid.salePrice ?? newHit.price.salePrice;
+    newHit.featured = oldHitWithSameNsuid.featured ?? newHit.featuredProduct;
+    newHit.lastModified = oldHitWithSameNsuid.lastModified ?? newHit.updatedAt;
+    newHit.numOfPlayers = oldHitWithSameNsuid.numOfPlayers;
+    newHit.playerFilters = oldHitWithSameNsuid.playerFilters;
+    newHit._distinctSeqID = oldHitWithSameNsuid._distinctSeqID;
+  }
+
+  return newHits;
+}
