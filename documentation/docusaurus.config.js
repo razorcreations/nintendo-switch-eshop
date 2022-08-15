@@ -1,7 +1,6 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/vsDark');
 const { npm2yarn2pnpm } = require('@sapphire/docusaurus-plugin-npm2yarn2pnpm');
-const { ts2esm2cjs } = require('@sapphire/docusaurus-plugin-ts2esm2cjs');
 
 const Description = 'Unofficial API lib for Nintendo Switch eShop game listing and pricing information.';
 const Email = 'support@favware.tech';
