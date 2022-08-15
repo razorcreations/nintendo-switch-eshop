@@ -73,8 +73,8 @@ function enrichNewHitsWithOldHitData(oldHits: QueriedGameUS[], newHits: QueriedG
     newHit.horizontalHeaderImage = oldHitWithSameNsuid.horizontalHeaderImage;
     newHit.howToShop = oldHitWithSameNsuid.howToShop;
     newHit.lowestPrice = oldHitWithSameNsuid.lowestPrice;
-    newHit.msrp = oldHitWithSameNsuid.msrp ?? newHit.price.regPrice;
-    newHit.salePrice = oldHitWithSameNsuid.salePrice ?? newHit.price.salePrice;
+    newHit.msrp = oldHitWithSameNsuid.msrp ?? newHit.price?.regPrice;
+    newHit.salePrice = oldHitWithSameNsuid.salePrice ?? newHit.price?.salePrice;
     newHit.featured = oldHitWithSameNsuid.featured ?? newHit.featuredProduct;
     newHit.lastModified = oldHitWithSameNsuid.lastModified ?? newHit.updatedAt;
     newHit.numOfPlayers = oldHitWithSameNsuid.numOfPlayers;
