@@ -1,7 +1,7 @@
 export { getGamesAmerica as default, getGamesAmerica } from './lib/getGames/getGamesAmerica';
+export { getGamesBrazil } from './lib/getGames/getGamesBrazil';
 export { getGamesEurope } from './lib/getGames/getGamesEurope';
 export { getGamesJapan } from './lib/getGames/getGamesJapan';
-export { getGamesBrazil } from './lib/getGames/getGamesBrazil';
 export { getQueriedGamesAmerica } from './lib/getGames/getQueriedGamesAmerica';
 export { getQueriedGamesBrazil } from './lib/getGames/getQueriedGamesBrazil';
 export { getActiveShops } from './lib/getShops/getActiveShops';
@@ -13,22 +13,24 @@ export { getShopsByCountryCodes } from './lib/other/getShopByCountryCode';
 export { parseGameCode } from './lib/other/parseGameCode';
 export { parseNSUID } from './lib/other/parseNSUID';
 export {
+  BR_ALGOLIA_HEADERS,
+  BR_ALGOLIA_ID,
+  BR_ALGOLIA_KEY,
+  BR_GET_GAMES_URL,
   EU_GET_GAMES_URL,
   JP_GET_GAMES_URL,
   PRICE_GET_URL,
-  QUERIED_US_ALGOLIA_KEY,
-  QUERIED_US_GET_GAMES_URL,
   QUERIED_BR_ALGOLIA_KEY,
   QUERIED_BR_GET_GAMES_URL,
+  QUERIED_US_ALGOLIA_KEY_NEW,
+  QUERIED_US_ALGOLIA_KEY_OLD,
+  QUERIED_US_GET_GAMES_URL_NEW,
+  QUERIED_US_GET_GAMES_URL_OLD,
   Region,
   US_ALGOLIA_HEADERS,
   US_ALGOLIA_ID,
   US_ALGOLIA_KEY,
-  US_GET_GAMES_URL,
-  BR_ALGOLIA_HEADERS,
-  BR_ALGOLIA_ID,
-  BR_ALGOLIA_KEY,
-  BR_GET_GAMES_URL
+  US_GET_GAMES_URL
 } from './lib/utils/constants';
 export type {
   EShop,
