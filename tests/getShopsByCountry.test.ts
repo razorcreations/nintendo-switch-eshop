@@ -13,7 +13,7 @@ describe('getShopsByCountry', () => {
       }
     ];
     const data = await getShopsByCountryCodes([lookup.countries({ name: 'United States' })[0].alpha2], US_GAME_CHECK_CODE, Region.AMERICAS);
-    expect(data).toBeInstanceOf(Object);
+    expect(data).toEqual(expect.any(Object));
     expect(data).toHaveLength(1);
     expect(data).toMatchObject(expectedReturn);
   });

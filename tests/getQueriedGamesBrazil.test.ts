@@ -4,7 +4,7 @@ describe('getQueriedGamesBrazil', () => {
   test('GIVEN Zelda THEN returns results with some known games', async () => {
     const data = await getQueriedGamesBrazil('Zelda');
 
-    expect(data).toBeInstanceOf(Object);
+    expect(data).toEqual(expect.any(Object));
     expect(data.length).toBeGreaterThanOrEqual(4);
 
     expect(data).toEqual(

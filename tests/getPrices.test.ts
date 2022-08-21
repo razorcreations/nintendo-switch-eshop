@@ -15,7 +15,7 @@ describe('getPrices', () => {
       ]
     };
     const data = await getPrices('US', US_GAME_CHECK_CODE);
-    expect(data).toBeInstanceOf(Object);
+    expect(data).toEqual(expect.any(Object));
     expect(data).toMatchObject(expectedReturn);
   });
 
@@ -26,7 +26,7 @@ describe('getPrices', () => {
       prices: []
     };
     const data = await getPrices('US', US_GAME_CHECK_CODE, PRICE_LIST_LIMIT);
-    expect(data).toBeInstanceOf(Object);
+    expect(data).toEqual(expect.any(Object));
     expect(data).toMatchObject(expectedReturn);
   });
 });

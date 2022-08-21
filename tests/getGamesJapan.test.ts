@@ -3,5 +3,5 @@ import { getGamesJapan } from '../src';
 test('getGamesJapan', async () => {
   const games = await getGamesJapan();
 
-  expect(games).toBeInstanceOf(Object);
+  expect(games).toEqual(expect.any(Object));
 }, 60000);
