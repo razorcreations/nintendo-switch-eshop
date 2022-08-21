@@ -5,6 +5,8 @@ import { JP_GET_GAMES_URL } from '../utils/constants';
 import type { GameJP } from '../utils/interfaces';
 import { EshopError } from '../utils/utils';
 
+const parser = new XMLParser();
+
 /**
  * Fetches all games on japanese eShops
  *
@@ -17,15 +19,11 @@ export const getGamesJapan = async (): Promise<GameJP[]> => {
     throw new EshopError('Fetching of JP Games failed');
   }
 
-  const parser = new XMLParser();
-
-  const gamesJP = Result.from(parser.parse(response.unwrap()));
+  const gamesJP = Result.from(() => parser.parse(response.unwrap()));
 
   if (gamesJP.isErr()) {
     throw new EshopError('Parsing of JP Games failed');
   }
 
-  const allGamesJP: GameJP[] = gamesJP.unwrap().TitleInfoList.TitleInfo;
-
-  return allGamesJP;
+  return gamesJP.unwrap().TitleInfoList.TitleInfo as GameJP[];
 };
