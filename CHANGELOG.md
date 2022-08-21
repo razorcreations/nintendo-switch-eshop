@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+# [7.1.2](https://github.com/favna/nintendo-switch-eshop/compare/v7.1.1...v7.1.2) - (2022-08-21)
+
+## 🏠 Refactor
+
+- Optimize `getGamesJapan` ([70c61cd](https://github.com/favna/nintendo-switch-eshop/commit/70c61cd3594643f379e49385b079942af50e81fa))
+- Switch to @sapphire/result for error handling ([2a1f845](https://github.com/favna/nintendo-switch-eshop/commit/2a1f845411700d07f53fb0f5620b2da3cc9ecab0))
+
+## 🐛 Bug Fixes
+
+- Fixed `getQueriedGamesAmerica` not returning sale prices ([a428502](https://github.com/favna/nintendo-switch-eshop/commit/a42850208cb401918cf6752ba6014a8f5375f6d5))
+
+## 🧪 Testing
+
+- Use `expect.any` for Object checks ([b782ea7](https://github.com/favna/nintendo-switch-eshop/commit/b782ea73525368ecaa230ea64b9fb199cc0141fd))
+
 # [7.1.1](https://github.com/favna/nintendo-switch-eshop/compare/v7.1.0...v7.1.1) - (2022-08-15)
 
 ## 🐛 Bug Fixes
