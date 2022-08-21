@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "@sapphire/fetch": "^2.4.1",
+    "@sapphire/result": "^2.4.0",
     "@types/country-data": "^0.0.2",
     "country-data": "^0.0.31",
     "fast-xml-parser": "^4.0.9"

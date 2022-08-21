@@ -1,4 +1,5 @@
 import { fetch, FetchResultTypes } from '@sapphire/fetch';
+import { Result } from '@sapphire/result';
 import { stringify } from 'querystring';
 import { PRICE_GET_OPTIONS, PRICE_GET_URL, PRICE_LIST_LIMIT } from '../utils/constants';
 import type { PriceResponse, TitleData } from '../utils/interfaces';
@@ -14,9 +15,9 @@ import { EshopError } from '../utils/utils';
  * @returns A promise containing the pricing information.
  */
 export const getPrices = async (country: string, gameIds: string[] | string, offset = 0, prices: TitleData[] = []): Promise<PriceResponse> => {
-  try {
-    const filteredIds = gameIds.slice(offset, offset + PRICE_LIST_LIMIT);
-    const response = await fetch<PriceResponse>(
+  const filteredIds = gameIds.slice(offset, offset + PRICE_LIST_LIMIT);
+  const response = await Result.fromAsync(
+    fetch<PriceResponse>(
       `${PRICE_GET_URL}?${stringify({
         country,
         ids: filteredIds,
@@ -24,26 +25,24 @@ export const getPrices = async (country: string, gameIds: string[] | string, off
         ...PRICE_GET_OPTIONS
       })}`,
       FetchResultTypes.JSON
-    );
+    )
+  );
 
-    if (response.prices && response.prices.length + offset < gameIds.length) {
-      const accumulatedPrices = prices.concat(response.prices);
-
-      return await getPrices(country, gameIds, offset + PRICE_LIST_LIMIT, accumulatedPrices);
-    } else if (response.prices) {
-      response.prices = response.prices.concat(prices);
-
-      return response;
-    }
-
-    return response;
-  } catch (err) {
-    if (/(?:PRICE_Rate_Limit)/i.test((err as Error).message)) {
-      throw new EshopError('Looks like you ran into a rate limit while getting price data, please do not spam the Nintendo servers.');
-    }
-    if (/(?:PRICE_get_request_failed)/i.test((err as Error).message)) {
-      throw new EshopError('Fetching of eShop prices failed');
-    }
-    throw err;
+  if (response.isErr()) {
+    throw new EshopError('Fetching of eShop prices failed');
   }
+
+  const responseUnwrapped = response.unwrap();
+
+  if (responseUnwrapped.prices && responseUnwrapped.prices.length + offset < gameIds.length) {
+    const accumulatedPrices = prices.concat(responseUnwrapped.prices);
+
+    return getPrices(country, gameIds, offset + PRICE_LIST_LIMIT, accumulatedPrices);
+  } else if (responseUnwrapped.prices) {
+    responseUnwrapped.prices = responseUnwrapped.prices.concat(prices);
+
+    return responseUnwrapped;
+  }
+
+  return responseUnwrapped;
 };

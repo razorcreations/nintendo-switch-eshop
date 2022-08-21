@@ -1,4 +1,5 @@
 import { fetch, FetchResultTypes } from '@sapphire/fetch';
+import { Result } from '@sapphire/result';
 import { XMLParser } from 'fast-xml-parser';
 import { JP_GET_GAMES_URL } from '../utils/constants';
 import type { GameJP } from '../utils/interfaces';
@@ -10,18 +11,21 @@ import { EshopError } from '../utils/utils';
  * @returns Promise containing all the games
  */
 export const getGamesJapan = async (): Promise<GameJP[]> => {
-  try {
-    const parser = new XMLParser();
+  const response = await Result.fromAsync(fetch(JP_GET_GAMES_URL, FetchResultTypes.Text));
 
-    const gamesJP = parser.parse(await fetch(JP_GET_GAMES_URL, FetchResultTypes.Text));
-
-    const allGamesJP: GameJP[] = gamesJP.TitleInfoList.TitleInfo;
-
-    return allGamesJP;
-  } catch (err) {
-    if (/(?:JP_games_request_failed)/i.test((err as Error).message)) {
-      throw new EshopError('Fetching of JP Games failed');
-    }
-    throw err;
+  if (response.isErr()) {
+    throw new EshopError('Fetching of JP Games failed');
   }
+
+  const parser = new XMLParser();
+
+  const gamesJP = Result.from(parser.parse(response.unwrap()));
+
+  if (gamesJP.isErr()) {
+    throw new EshopError('Parsing of JP Games failed');
+  }
+
+  const allGamesJP: GameJP[] = gamesJP.unwrap().TitleInfoList.TitleInfo;
+
+  return allGamesJP;
 };

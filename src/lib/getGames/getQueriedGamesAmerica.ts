@@ -8,6 +8,7 @@ import {
 } from '../utils/constants';
 import type { QueriedGameResult, QueriedGamesAmericaOptions, QueriedGameUS } from '../utils/interfaces';
 import { EshopError } from '../utils/utils';
+import { Result } from '@sapphire/result';
 
 /**
  * Fetches a subset of games from the American e-shops as based on a given query
@@ -21,43 +22,53 @@ export const getQueriedGamesAmerica = async (
   query: string,
   { hitsPerPage = 200, page = 0 }: QueriedGamesAmericaOptions = { hitsPerPage: 200, page: 0 }
 ): Promise<QueriedGameUS[]> => {
-  const { hits: newHits } = await fetch<QueriedGameResult>(
-    QUERIED_US_GET_GAMES_URL_NEW,
-    {
-      method: 'POST',
-      headers: {
-        ...US_ALGOLIA_HEADERS,
-        'X-Algolia-API-Key': QUERIED_US_ALGOLIA_KEY_NEW
+  const newGamesResult = await Result.fromAsync(
+    fetch<QueriedGameResult>(
+      QUERIED_US_GET_GAMES_URL_NEW,
+      {
+        method: 'POST',
+        headers: {
+          ...US_ALGOLIA_HEADERS,
+          'X-Algolia-API-Key': QUERIED_US_ALGOLIA_KEY_NEW
+        },
+        body: JSON.stringify({
+          hitsPerPage,
+          page,
+          query
+        })
       },
-      body: JSON.stringify({
-        hitsPerPage,
-        page,
-        query
-      })
-    },
-    FetchResultTypes.JSON
+      FetchResultTypes.JSON
+    )
   );
 
-  if (!newHits.length) throw new EshopError(`No game results for the query "${query}"`);
+  if (newGamesResult.isErr() || newGamesResult.isOkAnd((v) => v.hits.length === 0)) {
+    throw new EshopError(`No game results for the query "${query}"`);
+  }
 
-  const { hits: oldHits } = await fetch<QueriedGameResult>(
-    QUERIED_US_GET_GAMES_URL_OLD,
-    {
-      method: 'POST',
-      headers: {
-        ...US_ALGOLIA_HEADERS,
-        'X-Algolia-API-Key': QUERIED_US_ALGOLIA_KEY_OLD
+  const oldGamesResult = await Result.fromAsync(
+    fetch<QueriedGameResult>(
+      QUERIED_US_GET_GAMES_URL_OLD,
+      {
+        method: 'POST',
+        headers: {
+          ...US_ALGOLIA_HEADERS,
+          'X-Algolia-API-Key': QUERIED_US_ALGOLIA_KEY_OLD
+        },
+        body: JSON.stringify({
+          hitsPerPage,
+          page,
+          query
+        })
       },
-      body: JSON.stringify({
-        hitsPerPage,
-        page,
-        query
-      })
-    },
-    FetchResultTypes.JSON
+      FetchResultTypes.JSON
+    )
   );
 
-  return enrichNewHitsWithOldHitData(newHits, oldHits);
+  if (oldGamesResult.isErr() || oldGamesResult.isOkAnd((v) => v.hits.length === 0)) {
+    throw new EshopError(`No game results for the query "${query}"`);
+  }
+
+  return enrichNewHitsWithOldHitData(newGamesResult.unwrap().hits, oldGamesResult.unwrap().hits);
 };
 
 function enrichNewHitsWithOldHitData(oldHits: QueriedGameUS[], newHits: QueriedGameUS[]) {

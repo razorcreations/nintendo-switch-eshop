@@ -1,4 +1,5 @@
 import { fetch, FetchResultTypes } from '@sapphire/fetch';
+import { Result } from '@sapphire/result';
 import { stringify } from 'querystring';
 import { EU_DEFAULT_LOCALE, EU_GAME_LIST_LIMIT, EU_GET_GAMES_OPTIONS, EU_GET_GAMES_URL } from '../utils/constants';
 import type { EURequestOptions, GameEU } from '../utils/interfaces';
@@ -17,20 +18,19 @@ export const getGamesEurope = async (options: EURequestOptions = { limit: EU_GAM
   if (!options.limit) options.limit = EU_GAME_LIST_LIMIT;
   if (!options.locale) options.locale = EU_DEFAULT_LOCALE;
 
-  try {
-    const gamesData = await fetch<{ response: { docs: GameEU[] } }>(
+  const gamesData = await Result.fromAsync(
+    fetch<{ response: { docs: GameEU[] } }>(
       `${EU_GET_GAMES_URL.replace('{locale}', options.locale)}?${stringify({
         rows: options.limit,
         ...EU_GET_GAMES_OPTIONS
       })}`,
       FetchResultTypes.JSON
-    );
+    )
+  );
 
-    return gamesData.response.docs;
-  } catch (err) {
-    if (/(?:EU_games_request_failed)/i.test((err as Error).message)) {
-      throw new EshopError('Fetching of EU Games failed');
-    }
-    throw err;
+  if (gamesData.isErr()) {
+    throw new EshopError('Fetching of EU Games failed');
   }
+
+  return gamesData.unwrap().response.docs;
 };

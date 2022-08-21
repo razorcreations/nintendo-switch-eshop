@@ -1,4 +1,5 @@
 import { fetch, FetchResultTypes } from '@sapphire/fetch';
+import { Result } from '@sapphire/result';
 import { stringify } from 'querystring';
 import { US_ALGOLIA_HEADERS, US_GET_GAMES_URL } from '../utils/constants';
 import type { AlgoliaResponse, GameUS } from '../utils/interfaces';
@@ -71,22 +72,19 @@ export const getGamesAmerica = async (): Promise<GameUS[]> => {
     headers: US_ALGOLIA_HEADERS
   };
 
-  try {
-    const gamesResponse = await fetch<AlgoliaResponse>(US_GET_GAMES_URL, requestOptions, FetchResultTypes.JSON);
+  const gamesResponse = await Result.fromAsync(fetch<AlgoliaResponse>(US_GET_GAMES_URL, requestOptions, FetchResultTypes.JSON));
 
-    let allGames: any[] | PromiseLike<GameUS[]> = [];
-    for (const results of gamesResponse.results) {
-      allGames = allGames.concat(results.hits);
-    }
-
-    allGames = arrayRemoveDuplicates(allGames, 'slug');
-    return allGames;
-  } catch (err) {
-    if (/(?:US_games_request_failed)/i.test((err as Error).message)) {
-      throw new EshopError('Fetching of US Games failed');
-    }
-    throw err;
+  if (gamesResponse.isErr()) {
+    throw new EshopError('Fetching of US Games failed');
   }
+
+  let allGames: any[] | PromiseLike<GameUS[]> = [];
+  for (const results of gamesResponse.unwrap().results) {
+    allGames = allGames.concat(results.hits);
+  }
+
+  allGames = arrayRemoveDuplicates(allGames, 'slug');
+  return allGames;
 };
 
 interface Request {
