@@ -71,7 +71,7 @@ export const getQueriedGamesAmerica = async (
   return enrichNewHitsWithOldHitData(newGamesResult.unwrap().hits, oldGamesResult.unwrap().hits);
 };
 
-function enrichNewHitsWithOldHitData(oldHits: QueriedGameUS[], newHits: QueriedGameUS[]) {
+function enrichNewHitsWithOldHitData(newHits: QueriedGameUS[], oldHits: QueriedGameUS[]) {
   for (const newHit of newHits) {
     const oldHitWithSameNsuid = oldHits.find((oldHit) => oldHit.nsuid === newHit.nsuid);
 
