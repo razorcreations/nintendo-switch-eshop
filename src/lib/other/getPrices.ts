@@ -32,17 +32,17 @@ export const getPrices = async (country: string, gameIds: string[] | string, off
     throw new EshopError('Fetching of eShop prices failed');
   }
 
-  const responseUnwrapped = response.unwrap();
+  const unwrappedResponse = response.unwrap();
 
-  if (responseUnwrapped.prices && responseUnwrapped.prices.length + offset < gameIds.length) {
-    const accumulatedPrices = prices.concat(responseUnwrapped.prices);
+  if (unwrappedResponse.prices && unwrappedResponse.prices.length + offset < gameIds.length) {
+    const accumulatedPrices = prices.concat(unwrappedResponse.prices);
 
     return getPrices(country, gameIds, offset + PRICE_LIST_LIMIT, accumulatedPrices);
-  } else if (responseUnwrapped.prices) {
-    responseUnwrapped.prices = responseUnwrapped.prices.concat(prices);
+  } else if (unwrappedResponse.prices) {
+    unwrappedResponse.prices = unwrappedResponse.prices.concat(prices);
 
-    return responseUnwrapped;
+    return unwrappedResponse;
   }
 
-  return responseUnwrapped;
+  return unwrappedResponse;
 };
