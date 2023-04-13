@@ -12,7 +12,7 @@ const parser = new XMLParser();
  *
  * @returns Promise containing all the games
  */
-export const getGamesJapan = async (): Promise<GameJP[]> => {
+export async function getGamesJapan(): Promise<GameJP[]> {
   const response = await Result.fromAsync(fetch(JP_GET_GAMES_URL, FetchResultTypes.Text));
 
   if (response.isErr()) {
@@ -26,4 +26,4 @@ export const getGamesJapan = async (): Promise<GameJP[]> => {
   }
 
   return gamesJP.unwrap().TitleInfoList.TitleInfo as GameJP[];
-};
+}

@@ -1,7 +1,7 @@
 import { fetch, FetchResultTypes } from '@sapphire/fetch';
 import { Result } from '@sapphire/result';
 import { stringify } from 'querystring';
-import { QUERIED_BR_ALGOLIA_KEY, QUERIED_BR_GET_GAMES_URL, BR_ALGOLIA_HEADERS } from '../utils/constants';
+import { BR_ALGOLIA_HEADERS, QUERIED_BR_ALGOLIA_KEY, QUERIED_BR_GET_GAMES_URL } from '../utils/constants';
 import type { QueriedGameResult, QueriedGamesAmericaOptions, QueriedGameUS } from '../utils/interfaces';
 import { EshopError } from '../utils/utils';
 
@@ -13,10 +13,10 @@ import { EshopError } from '../utils/utils';
  * @license Apache-2.0 Jeroen Claassens & Aura Román
  * @copyright 2021
  */
-export const getQueriedGamesBrazil = async (
+export async function getQueriedGamesBrazil(
   query: string,
   { hitsPerPage = 200, page = 0 }: QueriedGamesAmericaOptions = { hitsPerPage: 200, page: 0 }
-): Promise<QueriedGameUS[]> => {
+): Promise<QueriedGameUS[]> {
   const gamesResult = await Result.fromAsync(
     fetch<QueriedGameResult>(
       QUERIED_BR_GET_GAMES_URL,
@@ -43,4 +43,4 @@ export const getQueriedGamesBrazil = async (
   }
 
   return gamesResult.unwrap().hits;
-};
+}

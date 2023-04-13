@@ -14,7 +14,7 @@ import { EshopError } from '../utils/utils';
  * @param prices _(Optional)_ An array of {@link TitleData}
  * @returns A promise containing the pricing information.
  */
-export const getPrices = async (country: string, gameIds: string[] | string, offset = 0, prices: TitleData[] = []): Promise<PriceResponse> => {
+export async function getPrices(country: string, gameIds: string[] | string, offset = 0, prices: TitleData[] = []): Promise<PriceResponse> {
   const filteredIds = gameIds.slice(offset, offset + PRICE_LIST_LIMIT);
   const response = await Result.fromAsync(
     fetch<PriceResponse>(
@@ -45,4 +45,4 @@ export const getPrices = async (country: string, gameIds: string[] | string, off
   }
 
   return unwrappedResponse;
-};
+}

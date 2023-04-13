@@ -9,7 +9,7 @@ import { EshopError } from '../utils/utils';
  * @param region Region code
  * @returns The 4-digit resulting game code
  */
-export const parseGameCode = (game: GameUS | GameEU | GameJP, region: Region): string | null => {
+export function parseGameCode(game: GameUS | GameEU | GameJP, region: Region): string | null {
   let codeParse: RegExpExecArray | null;
 
   switch (region) {
@@ -26,4 +26,4 @@ export const parseGameCode = (game: GameUS | GameEU | GameJP, region: Region): s
   }
 
   return codeParse && codeParse.length > 1 ? codeParse[1] : null;
-};
+}

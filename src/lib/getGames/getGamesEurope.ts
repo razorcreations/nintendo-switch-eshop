@@ -14,7 +14,7 @@ import { EshopError } from '../utils/utils';
  * @param options - Request options to pass to the eShop request {@link EURequestOptions | See EURequestOptions for details}
  * @returns Promise containing all requested EU/PAL games
  */
-export const getGamesEurope = async (options: EURequestOptions = { limit: EU_GAME_LIST_LIMIT, locale: EU_DEFAULT_LOCALE }): Promise<GameEU[]> => {
+export async function getGamesEurope(options: EURequestOptions = { limit: EU_GAME_LIST_LIMIT, locale: EU_DEFAULT_LOCALE }): Promise<GameEU[]> {
   if (!options.limit) options.limit = EU_GAME_LIST_LIMIT;
   if (!options.locale) options.locale = EU_DEFAULT_LOCALE;
 
@@ -33,4 +33,4 @@ export const getGamesEurope = async (options: EURequestOptions = { limit: EU_GAM
   }
 
   return gamesData.unwrap().response.docs;
-};
+}

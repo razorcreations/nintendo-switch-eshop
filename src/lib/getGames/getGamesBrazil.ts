@@ -13,7 +13,7 @@ import { arrayRemoveDuplicates, EshopError } from '../utils/utils';
  *
  * @returns Promise containing all the games
  */
-export const getGamesBrazil = async (): Promise<GameUS[]> => {
+export async function getGamesBrazil(): Promise<GameUS[]> {
   const page = 0;
 
   const baseParameters: Omit<ParamsObject, 'facetFilters'> = {
@@ -85,7 +85,7 @@ export const getGamesBrazil = async (): Promise<GameUS[]> => {
 
   allGames = arrayRemoveDuplicates(allGames, 'slug');
   return allGames;
-};
+}
 
 interface Request {
   indexName: string;

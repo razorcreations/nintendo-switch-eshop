@@ -12,7 +12,7 @@ import { getPrices } from './getPrices';
  * @param region A region id that will be appended in the final shop object for filtering purposes.
  * @returns A list of shop objects with country code, name and default currency.
  */
-export const getShopsByCountryCodes = async (countryCodes: string[], gameCode: string, region: Region): Promise<EShop[]> => {
+export async function getShopsByCountryCodes(countryCodes: string[], gameCode: string, region: Region): Promise<EShop[]> {
   const countryList: Country[] = countryCodes.map((code: string) => countries.all.filter((country: Country) => country.alpha2 === code)[0]);
   const shops: PriceResponse[] = [];
 
@@ -39,4 +39,4 @@ export const getShopsByCountryCodes = async (countryCodes: string[], gameCode: s
   if (!eShops.length) throw new Error('ACTIVE_SHOPS_Rate_Limit');
 
   return eShops;
-};
+}

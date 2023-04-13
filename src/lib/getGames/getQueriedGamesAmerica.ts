@@ -1,4 +1,5 @@
 import { fetch, FetchResultTypes } from '@sapphire/fetch';
+import { Result } from '@sapphire/result';
 import {
   QUERIED_US_ALGOLIA_KEY_NEW,
   QUERIED_US_ALGOLIA_KEY_OLD,
@@ -8,7 +9,6 @@ import {
 } from '../utils/constants';
 import type { QueriedGameResult, QueriedGamesAmericaOptions, QueriedGameUS } from '../utils/interfaces';
 import { EshopError } from '../utils/utils';
-import { Result } from '@sapphire/result';
 
 /**
  * Fetches a subset of games from the American e-shops as based on a given query
@@ -18,10 +18,10 @@ import { Result } from '@sapphire/result';
  * @license Apache-2.0 Jeroen Claassens & Aura Román
  * @copyright 2021
  */
-export const getQueriedGamesAmerica = async (
+export async function getQueriedGamesAmerica(
   query: string,
   { hitsPerPage = 200, page = 0 }: QueriedGamesAmericaOptions = { hitsPerPage: 200, page: 0 }
-): Promise<QueriedGameUS[]> => {
+): Promise<QueriedGameUS[]> {
   const newGamesResult = await Result.fromAsync(
     fetch<QueriedGameResult>(
       QUERIED_US_GET_GAMES_URL_NEW,
@@ -69,7 +69,7 @@ export const getQueriedGamesAmerica = async (
   }
 
   return enrichNewHitsWithOldHitData(newGamesResult.unwrap().hits, oldGamesResult.unwrap().hits);
-};
+}
 
 function enrichNewHitsWithOldHitData(newHits: QueriedGameUS[], oldHits: QueriedGameUS[]) {
   for (const newHit of newHits) {
