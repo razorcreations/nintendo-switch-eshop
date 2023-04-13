@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+# [7.1.3](https://github.com/favna/nintendo-switch-eshop/compare/v7.1.2...v7.1.3) - (2023-04-13)
+
+## 🏠 Refactor
+
+- Use named functions for exported functions ([8ca9ba8](https://github.com/favna/nintendo-switch-eshop/commit/8ca9ba83eec51f901129f2ee02ed7e92983b5f13))
+
+## 🐛 Bug Fixes
+
+- Throw an error when `parseGameCode` is called for American games ([f36900d](https://github.com/favna/nintendo-switch-eshop/commit/f36900dad8da52c7d740bcba725fbb61f9b04f76))
+- Update build stack (#13) ([12816d1](https://github.com/favna/nintendo-switch-eshop/commit/12816d10e7d7e1e842f01ccdad804f7550a75016))
+
+## 📝 Documentation
+
+- **readme:** Update contributing ([1d02690](https://github.com/favna/nintendo-switch-eshop/commit/1d0269014ec6a850376db7ae05a3a0a64ec6378b))
+
 # [7.1.2](https://github.com/favna/nintendo-switch-eshop/compare/v7.1.1...v7.1.2) - (2022-08-21)
 
 ## 🏠 Refactor
