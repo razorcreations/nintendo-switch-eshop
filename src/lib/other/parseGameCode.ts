@@ -1,5 +1,6 @@
 import { EU_GAME_CODE_REGEX, JP_GAME_CODE_REGEX, Region } from '../utils/constants';
 import type { GameEU, GameJP, GameUS } from '../utils/interfaces';
+import { EshopError } from '../utils/utils';
 
 /**
  * Parses the game code to extract the cross-region portion.
@@ -12,7 +13,10 @@ export const parseGameCode = (game: GameUS | GameEU | GameJP, region: Region): s
   let codeParse: RegExpExecArray | null;
 
   switch (region) {
-    default:
+    case Region.AMERICAS:
+      throw new EshopError(
+        '`parseGameCode` is not possible for American games as the Nintendo API does not provide enough information to deduce the game code.'
+      );
     case Region.EUROPE:
       codeParse = EU_GAME_CODE_REGEX.exec((game as GameEU).product_code_txt[0]);
       break;
