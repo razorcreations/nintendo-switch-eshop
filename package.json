@@ -24,9 +24,7 @@
     "build": "tsup",
     "bump": "cliff-jumper",
     "check-update": "cliff-jumper --dry-run",
-    "postinstall": "husky install .github/husky",
-    "prepack": "yarn build && pinst --disable",
-    "postpack": "pinst --enable"
+    "prepack": "yarn build"
   },
   "dependencies": {
     "@sapphire/fetch": "^2.4.1",
@@ -51,9 +49,7 @@
     "eslint": "^8.48.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
-    "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
-    "pinst": "^3.0.0",
     "prettier": "^3.0.3",
     "replace": "^1.2.2",
     "tsup": "^7.2.0",
