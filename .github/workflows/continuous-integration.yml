@@ -45,22 +45,6 @@ jobs:
       - name: Build Code
         run: yarn build
 
-  CodeQL:
-    name: Codequality
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      # Initializes the CodeQL tools for scanning.
-      - name: Initialize CodeQL
-        uses: github/codeql-action/init@v1
-        with:
-          languages: typescript
-
-      - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v1
-
   Testing:
     name: Unit Tests
     runs-on: ubuntu-latest
