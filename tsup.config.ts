@@ -29,6 +29,7 @@ export default [
 		...baseOptions,
 		globalName: 'NintendoSwitchEshop',
 		dts: false,
+		minify: true,
 		outDir: 'dist/iife',
 		format: 'iife'
 	})

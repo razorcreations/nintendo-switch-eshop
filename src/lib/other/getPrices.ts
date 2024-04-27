@@ -1,8 +1,8 @@
 import { fetch, FetchResultTypes } from '@sapphire/fetch';
 import { Result } from '@sapphire/result';
-import { stringify } from 'querystring';
 import { PRICE_GET_OPTIONS, PRICE_GET_URL, PRICE_LIST_LIMIT } from '../utils/constants';
 import type { PriceResponse, TitleData } from '../utils/interfaces';
+import { makeURLSearchParams } from '../utils/makeURLSearchParams';
 import { EshopError } from '../utils/utils';
 
 /**
@@ -16,17 +16,15 @@ import { EshopError } from '../utils/utils';
  */
 export async function getPrices(country: string, gameIds: string[] | string, offset = 0, prices: TitleData[] = []): Promise<PriceResponse> {
 	const filteredIds = gameIds.slice(offset, offset + PRICE_LIST_LIMIT);
-	const response = await Result.fromAsync(
-		fetch<PriceResponse>(
-			`${PRICE_GET_URL}?${stringify({
-				country,
-				ids: filteredIds,
-				limit: PRICE_LIST_LIMIT,
-				...PRICE_GET_OPTIONS
-			})}`,
-			FetchResultTypes.JSON
-		)
-	);
+
+	const url = new URL(PRICE_GET_URL);
+	url.search = makeURLSearchParams({
+		country,
+		ids: filteredIds,
+		limit: PRICE_LIST_LIMIT,
+		...PRICE_GET_OPTIONS
+	}).toString();
+	const response = await Result.fromAsync(fetch<PriceResponse>(url, FetchResultTypes.JSON));
 
 	if (response.isErr()) {
 		throw new EshopError('Fetching of eShop prices failed');

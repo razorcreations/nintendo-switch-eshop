@@ -1,8 +1,8 @@
 import { fetch, FetchResultTypes } from '@sapphire/fetch';
 import { Result } from '@sapphire/result';
-import { stringify } from 'querystring';
 import { BR_ALGOLIA_HEADERS, QUERIED_BR_ALGOLIA_KEY, QUERIED_BR_GET_GAMES_URL } from '../utils/constants';
 import type { QueriedGameResult, QueriedGamesAmericaOptions, QueriedGameUS } from '../utils/interfaces';
+import { makeURLSearchParams } from '../utils/makeURLSearchParams';
 import { EshopError } from '../utils/utils';
 
 /**
@@ -27,11 +27,11 @@ export async function getQueriedGamesBrazil(
 					'X-Algolia-API-Key': QUERIED_BR_ALGOLIA_KEY
 				},
 				body: JSON.stringify({
-					params: stringify({
+					params: makeURLSearchParams({
 						hitsPerPage,
 						page,
 						query
-					})
+					}).toString()
 				})
 			},
 			FetchResultTypes.JSON

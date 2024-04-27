@@ -1,9 +1,9 @@
 import { fetch, FetchResultTypes } from '@sapphire/fetch';
 import { Result } from '@sapphire/result';
-import { stringify } from 'querystring';
 import { BR_ALGOLIA_HEADERS, BR_GET_GAMES_URL } from '../utils/constants';
 import type { AlgoliaResponse, GameUS } from '../utils/interfaces';
 import { arrayRemoveDuplicates, EshopError } from '../utils/utils';
+import { makeURLSearchParams } from '../utils/makeURLSearchParams';
 
 /**
  * Fetches all games on brazilian e-shop
@@ -29,11 +29,11 @@ export async function getGamesBrazil(): Promise<GameUS[]> {
 		requests.push(
 			{
 				indexName: BR_INDEX_TITLE_ASC,
-				params: stringify({ ...baseParameters, facetFilters: `[["${rating}"],["${BR_PLATFORM_FACET_FILTER}"]]` })
+				params: makeURLSearchParams({ ...baseParameters, facetFilters: `[["${rating}"],["${BR_PLATFORM_FACET_FILTER}"]]` }).toString()
 			},
 			{
 				indexName: BR_INDEX_TITLE_DESC,
-				params: stringify({ ...baseParameters, facetFilters: `[["${rating}"],["${BR_PLATFORM_FACET_FILTER}"]]` })
+				params: makeURLSearchParams({ ...baseParameters, facetFilters: `[["${rating}"],["${BR_PLATFORM_FACET_FILTER}"]]` }).toString()
 			}
 		);
 	}
@@ -42,11 +42,11 @@ export async function getGamesBrazil(): Promise<GameUS[]> {
 		requests.push(
 			{
 				indexName: BR_INDEX_TITLE_ASC,
-				params: stringify({ ...baseParameters, facetFilters: `[["${rating}"],["${BR_PLATFORM_FACET_FILTER}"]]` })
+				params: makeURLSearchParams({ ...baseParameters, facetFilters: `[["${rating}"],["${BR_PLATFORM_FACET_FILTER}"]]` }).toString()
 			},
 			{
 				indexName: BR_INDEX_TITLE_DESC,
-				params: stringify({ ...baseParameters, facetFilters: `[["${rating}"],["${BR_PLATFORM_FACET_FILTER}"]]` })
+				params: makeURLSearchParams({ ...baseParameters, facetFilters: `[["${rating}"],["${BR_PLATFORM_FACET_FILTER}"]]` }).toString()
 			}
 		);
 	}
@@ -55,11 +55,11 @@ export async function getGamesBrazil(): Promise<GameUS[]> {
 		requests.push(
 			{
 				indexName: BR_INDEX_TITLE_ASC,
-				params: stringify({ ...baseParameters, facetFilters: `[["${rating}"],["${BR_PLATFORM_FACET_FILTER}"]]` })
+				params: makeURLSearchParams({ ...baseParameters, facetFilters: `[["${rating}"],["${BR_PLATFORM_FACET_FILTER}"]]` }).toString()
 			},
 			{
 				indexName: BR_INDEX_TITLE_DESC,
-				params: stringify({ ...baseParameters, facetFilters: `[["${rating}"],["${BR_PLATFORM_FACET_FILTER}"]]` })
+				params: makeURLSearchParams({ ...baseParameters, facetFilters: `[["${rating}"],["${BR_PLATFORM_FACET_FILTER}"]]` }).toString()
 			}
 		);
 	}
