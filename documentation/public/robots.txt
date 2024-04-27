@@ -1,0 +1,4 @@
+# https://www.robotstxt.org/robotstxt.html
+Sitemap: https://nintendo-switch-eshop.pages.dev/sitemap.xml
+User-agent: *
+Disallow:
