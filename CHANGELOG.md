@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file.
 
+# [8.0.0](https://github.com/favna/nintendo-switch-eshop/compare/v7.1.3...v8.0.0) - (2024-04-29)
+
+## 🏠 Refactor
+
+- Do not use `querystring` node internal for better browser bundle ([0d01ac0](https://github.com/favna/nintendo-switch-eshop/commit/0d01ac01036330a469286e55f3f59fadafbd6a26))
+- Rework repository, update whole stack ([a26b37b](https://github.com/favna/nintendo-switch-eshop/commit/a26b37b9f24b4889dab47623883a6686955bff75))
+
+## 🐛 Bug Fixes
+
+- Configure package for proper bundle exports ([7e1c1df](https://github.com/favna/nintendo-switch-eshop/commit/7e1c1df147b1f9067aea692f9d4dd56664ae35c8))
+
+## 📝 Documentation
+
+- Migrate to astro (#33) ([0f5d2c8](https://github.com/favna/nintendo-switch-eshop/commit/0f5d2c8b1fe949a8fc2ca5d21e2db46ffc61a2a1))
+
+## 🚀 Features
+
+- Ensure proper CJS and ESM bundles and add IIFE bundle ([3d009bc](https://github.com/favna/nintendo-switch-eshop/commit/3d009bc807d142a482be3d21ff79bc156dcebac9))
+- Drop default export of `getGamesAmerica` ([9b93ed9](https://github.com/favna/nintendo-switch-eshop/commit/9b93ed9a8f7738294f37438420868e9f49c62418))
+  - 💥 **BREAKING CHANGE:** `getGamesAmerica` is no longer default exported. Use a named import instead.
+
 # [7.1.3](https://github.com/favna/nintendo-switch-eshop/compare/v7.1.2...v7.1.3) - (2023-04-13)
 
 ## 🏠 Refactor
