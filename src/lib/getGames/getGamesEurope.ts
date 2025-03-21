@@ -18,10 +18,12 @@ export async function getGamesEurope(options: EURequestOptions = { limit: EU_GAM
 	if (!options.limit) options.limit = EU_GAME_LIST_LIMIT;
 	if (!options.locale) options.locale = EU_DEFAULT_LOCALE;
 
+	const mergedOptions = { ...EU_GET_GAMES_OPTIONS, ...options };
+
 	const url = new URL(EU_GET_GAMES_URL.replace('{locale}', options.locale));
 	url.search = makeURLSearchParams({
 		rows: options.limit,
-		...EU_GET_GAMES_OPTIONS
+		...mergedOptions
 	}).toString();
 
 	const gamesData = await Result.fromAsync(fetch<{ response: { docs: GameEU[] } }>(url, FetchResultTypes.JSON));

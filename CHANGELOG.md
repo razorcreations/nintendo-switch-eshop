@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+# [8.0.1](https://github.com/favna/nintendo-switch-eshop/compare/v8.0.0...v8.0.1) - (2025-03-21)
+
+## 🐛 Bug Fixes
+
+- GetGamesEurope now limits the amount of games returned to 1000, set default to 1000
+- Allow start option to be set in the GetGamesEurope function
+
 # [8.0.0](https://github.com/favna/nintendo-switch-eshop/compare/v7.1.3...v8.0.0) - (2024-04-29)
 
 ## 🏠 Refactor
@@ -21,7 +28,7 @@ All notable changes to this project will be documented in this file.
 
 - Ensure proper CJS and ESM bundles and add IIFE bundle ([3d009bc](https://github.com/favna/nintendo-switch-eshop/commit/3d009bc807d142a482be3d21ff79bc156dcebac9))
 - Drop default export of `getGamesAmerica` ([9b93ed9](https://github.com/favna/nintendo-switch-eshop/commit/9b93ed9a8f7738294f37438420868e9f49c62418))
-  - 💥 **BREAKING CHANGE:** `getGamesAmerica` is no longer default exported. Use a named import instead.
+    - 💥 **BREAKING CHANGE:** `getGamesAmerica` is no longer default exported. Use a named import instead.
 
 # [7.1.3](https://github.com/favna/nintendo-switch-eshop/compare/v7.1.2...v7.1.3) - (2023-04-13)
 
@@ -248,12 +255,12 @@ Co-authored-by: Jeroen Claassens <support@favware.tech>
 ### Changed
 
 - Restructured project
-  - Now produces optimal bundles with Rollup
-  - Proper JSDoc generation
-  - Keeping a changelog
-  - Cleaner editorconfig and thus coding style
-  - GitHub issue and pull request and a contributing guide
-  - Better CircleCI configuration
+    - Now produces optimal bundles with Rollup
+    - Proper JSDoc generation
+    - Keeping a changelog
+    - Cleaner editorconfig and thus coding style
+    - GitHub issue and pull request and a contributing guide
+    - Better CircleCI configuration
 
 ## [2.1.1](https://github.com/favna/nintendo-switch-eshop/compare/2.1.0...2.1.1) - 2019-02-26
 
